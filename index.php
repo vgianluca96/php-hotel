@@ -58,13 +58,27 @@ $hotels = [
 
     <div class="container w-75 py-4">
 
-        <form method="post" action="">
-            <select name="park" class="form-select w-50">
-                <option value="">Tutti gli Hotel</option>
-                <option value="park">Hotel con parcheggio</option>
-                <option value="nopark">Hotel senza parcheggio</option>
-            </select>
-            <button type="submit">Filtra</button>
+        <form method="post" action="" class="row g-3">
+            <div class="col-3">
+                <select name="park" class="form-select">
+                    <option value="">Tutti gli Hotel</option>
+                    <option value="park">Hotel con parcheggio</option>
+                    <option value="nopark">Hotel senza parcheggio</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <select name="vote" class="form-select">
+                    <option value="0">Tutti gli Hotel</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <button type="submit" class="btn btn-light">Filtra</button>
+            </div>
         </form>
 
         <table class="table table-dark table-striped">
@@ -81,15 +95,17 @@ $hotels = [
                 <?php
 
                 $park_filter = $_POST["park"];
+                $vote_filter = $_POST["vote"];
                 var_dump($park_filter);
+                var_dump($vote_filter);
 
                 foreach ($hotels as $hotel) {
 
-                    $var0 = $park_filter == '';
-                    $var1 = $park_filter == 'park' && $hotel['parking'] == true;
-                    $var2 = $park_filter == 'nopark' && $hotel['parking'] == false;
+                    $cond0 = $park_filter == '' && $hotel['vote'] >= $vote_filter;
+                    $cond1 = $park_filter == 'park' && $hotel['parking'] == true && $hotel['vote'] >= $vote_filter;
+                    $cond2 = $park_filter == 'nopark' && $hotel['parking'] == false && $hotel['vote'] >= $vote_filter;
 
-                    if ($var0 || $var1 || $var2) {
+                    if ($cond0 || $cond1 || $cond2) {
 
                 ?>
                         <tr class="">
