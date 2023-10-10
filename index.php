@@ -54,6 +54,14 @@ $hotels = [
 
 <body>
 
+    <?php
+
+    foreach ($hotels as $hotel)
+
+        var_dump($hotel)
+
+    ?>
+
 </body>
 
 </html>
