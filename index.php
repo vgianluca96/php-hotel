@@ -58,7 +58,7 @@ $hotels = [
 
     <div class="container w-75 py-4">
 
-        <form method="post" action="" class="row g-3">
+        <form method="get" action="" class="row g-3">
             <div class="col-3">
                 <select name="park" class="form-select">
                     <option value="">Tutti gli Hotel</option>
@@ -94,8 +94,8 @@ $hotels = [
             <tbody>
                 <?php
 
-                $park_filter = $_POST["park"];
-                $vote_filter = $_POST["vote"];
+                $park_filter = $_GET["park"];
+                $vote_filter = $_GET["vote"];
                 var_dump($park_filter);
                 var_dump($vote_filter);
 
