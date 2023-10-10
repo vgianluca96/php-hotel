@@ -69,11 +69,11 @@ $hotels = [
             <div class="col-3">
                 <select name="vote" class="form-select">
                     <option value="0">Tutti gli Hotel</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option value="1">Voto maggiore o uguale a 1</option>
+                    <option value="2">Voto maggiore o uguale a 2</option>
+                    <option value="3">Voto maggiore o uguale a 3</option>
+                    <option value="4">Voto maggiore o uguale a 4</option>
+                    <option value="5">Voto maggiore o uguale a 5</option>
                 </select>
             </div>
             <div class="col-3">
