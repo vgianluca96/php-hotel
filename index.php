@@ -60,9 +60,9 @@ $hotels = [
 
         <form method="post" action="">
             <select name="park" class="form-select w-50">
-                <option value="">Filtra in base alla presenza di parcheggio</option>
-                <option value="park">Con parcheggio</option>
-                <option value="nopark">Senza parcheggio</option>
+                <option value="">Tutti gli Hotel</option>
+                <option value="park">Hotel con parcheggio</option>
+                <option value="nopark">Hotel senza parcheggio</option>
             </select>
             <button type="submit">Filtra</button>
         </form>
@@ -85,8 +85,11 @@ $hotels = [
 
                 foreach ($hotels as $hotel) {
 
-                    if ($park_filter == 'park' && $hotel['park'] == 1) {
-                        var_dump($hotel);
+                    $var0 = $park_filter == '';
+                    $var1 = $park_filter == 'park' && $hotel['parking'] == true;
+                    $var2 = $park_filter == 'nopark' && $hotel['parking'] == false;
+
+                    if ($var0 || $var1 || $var2) {
 
                 ?>
                         <tr class="">
