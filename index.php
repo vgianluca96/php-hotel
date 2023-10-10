@@ -54,13 +54,22 @@ $hotels = [
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="text-bg-dark">
 
-    <div class="container py-4">
+    <div class="container w-75 py-4">
 
-        <table class="table table-striped">
+        <form method="post" action="">
+            <select name="park" class="form-select w-50">
+                <option value="">Filtra in base alla presenza di parcheggio</option>
+                <option value="park">Con parcheggio</option>
+                <option value="nopark">Senza parcheggio</option>
+            </select>
+            <button type="submit">Filtra</button>
+        </form>
+
+        <table class="table table-dark table-striped">
             <thead>
-                <tr>
+                <tr class="">
                     <th scope="col">Name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Parking</th>
@@ -70,25 +79,37 @@ $hotels = [
             </thead>
             <tbody>
                 <?php
-                foreach ($hotels as $hotel) { ?>
-                    <tr>
-                        <th scope="row">
-                            <?php echo $hotel['name'] ?>
-                        </th>
-                        <td>
-                            <?php echo $hotel['description'] ?>
-                        </td>
-                        <td>
-                            <?php echo $hotel['parking'] ?>
-                        </td>
-                        <td>
-                            <?php echo $hotel['vote'] ?>
-                        </td>
-                        <td>
-                            <?php echo $hotel['distance_to_center'] ?>
-                        </td>
-                    </tr>
-                <?php } ?>
+
+                $park_filter = $_POST["park"];
+                var_dump($park_filter);
+
+                foreach ($hotels as $hotel) {
+
+                    if ($park_filter == 'park' && $hotel['park'] == 1) {
+                        var_dump($hotel);
+
+                ?>
+                        <tr class="">
+                            <th scope="row ">
+                                <?php echo $hotel['name'] ?>
+                            </th>
+                            <td class="">
+                                <?php echo $hotel['description'] ?>
+                            </td>
+                            <td class="">
+                                <?php echo $hotel['parking'] ?>
+                            </td>
+                            <td class="">
+                                <?php echo $hotel['vote'] ?>
+                            </td>
+                            <td class="">
+                                <?php echo $hotel['distance_to_center'] ?>
+                            </td>
+                        </tr>
+                <?php
+                    }
+                }
+                ?>
             </tbody>
         </table>
 
