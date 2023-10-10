@@ -73,7 +73,7 @@ $hotels = [
                     <option value="2">Voto maggiore o uguale a 2</option>
                     <option value="3">Voto maggiore o uguale a 3</option>
                     <option value="4">Voto maggiore o uguale a 4</option>
-                    <option value="5">Voto maggiore o uguale a 5</option>
+                    <option value="5">Voto uguale a 5</option>
                 </select>
             </div>
             <div class="col-3">
